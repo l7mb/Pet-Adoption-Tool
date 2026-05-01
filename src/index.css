@@ -1,0 +1,99 @@
+body{
+    background-color: #f5d7d7;
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+body input{
+    padding: 8px;
+    padding-right: 16px;
+    border-radius: 5px;
+    margin-right: 12px;
+    border: 2px solid #d3cccc;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.search {
+    scale: 0.9;
+    padding: 8px 16px;
+    border-radius: 5px;
+    background-color: #4c87af;
+    font-size:16px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.outerBody{
+    max-width: 600px;
+    margin: 100px auto;
+    padding: 20px;
+}
+
+.learnMore button{
+    padding: 8px 16px;
+    border-radius: 5px;
+    background-color: #4c87af;
+    font-size:16px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+.cornerButton{
+    position:fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 3000;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background: #00000099;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 3000;
+}
+
+.modalBox {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 400px;
+    text-align: center;
+}
+
+
+
+
+.resultsTotal {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.locationResults {
+
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    text-align: left;
+}
+.locationName{
+    margin-top:1px;
+}
+.locationAddress{
+    margin-top: 1px;
+    
+}
+.distanceAway{
+    margin-top: 1px;
+}
+
