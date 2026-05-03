@@ -13,16 +13,19 @@ function App() {
     const [message, setMessage] = useState("");
     const [modal, setModal] = useState(false);
 
-const getDistance = (lat1, lon1, lat2, lon2) => {
+const getDistance = (lat1, lon1, lat2, lon2) => { {/*coordinates of the given zip code and the shelter*/}
   const toRad = (value) => (value * Math.PI) / 180;
   const R = 3958.8;
-  
+
   const dLat = toRad(lat2 - lat1);
   const dLon = toRad(lon2 - lon1);
+  {/*the distance between the two sets of coordinates*/}
 
-  const a = Math.sin(dLat / 2) ** 2 + Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLon / 2) ** 2;
+  const a = Math.sin(dLat / 2) ** 2 + Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLon / 2) ** 2; 
+  {/*Applies the Haversine formula in order to calculate the distance between the two locations*/}
   const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
   return R * c;
+  {/*converts results to miles by multiplying by radius of the Earth*/}
 };
 
 const handleSearch = async () => {
@@ -44,13 +47,14 @@ const handleSearch = async () => {
     if (results.length === 0) {
       setMessage("No shelters found nearby. Try a different ZIP or widen your search area.");
     }
-    const resultsDistance = results.map((s) => ({ ...s,
-  distance: getDistance(
-    loc.lat, loc.lon,
-    s.lat, s.lon
-  )
+
+  const resultsDistance = results.map((s) => ({ ...s, /* maps the distance of each location*/
+    distance: getDistance(
+      loc.lat, loc.lon, s.lat, s.lon
+    )
+    
 }));
-    resultsDistance.sort((a, b) => a.distance - b.distance);
+    resultsDistance.sort((a, b) => a.distance - b.distance); {/*sort results by closest first*/}
     setShelters(resultsDistance);
     setLoading(false);
 };
@@ -59,7 +63,7 @@ return (
 <div className="outerBody">
     <h1 id="header">Animal Adoption Tool</h1>
 
-        <input value={zip} onChange={(e) => setZip(e.target.value)} placeholder="Enter ZIP code" maxLength={9}/>
+        <input value={zip} onChange={(e) => setZip(e.target.value)} placeholder="Enter ZIP code" maxLength={5}/> {/*only 5 digit zipcodes are supported*/}
         <button onClick={handleSearch} disabled={loading} className="search">{loading ? "Searching..." : "Find Shelters near me"}</button>
 
       <div className="learnMore">

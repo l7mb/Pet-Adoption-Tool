@@ -21,7 +21,7 @@ export const getLocationFromZip = async (zip) => {
 
 export const getSheltersFromCoords = async (lat, lon) => {
   try {
-    const query = `[out:json];
+    const query = `[out:json];    //this controls the distance that the overpass api will search for shelters, 5000 represents 5000 meters
       ( node["amenity"="animal_shelter"](around:5000, ${lat}, ${lon});
         node["amenity"="veterinary"](around:5000, ${lat}, ${lon});
         node["shop"="pet"](around:5000, ${lat}, ${lon});
@@ -42,7 +42,7 @@ export const getSheltersFromCoords = async (lat, lon) => {
 
     const data = await res.json();
 
-    return data.elements.map((el) => ({
+    return data.elements.map((el) => ({ //This controls the information that is returned for each shelter
       id: el.id,
       name: el.tags?.name || "Missing Name",
       lat: parseFloat(el.lat),
