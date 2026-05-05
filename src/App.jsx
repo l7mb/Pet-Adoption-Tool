@@ -61,7 +61,7 @@ const handleSearch = async () => {
 
 return (
 <div className="outerBody">
-    <h1 id="header">Animal Adoption Tool</h1>
+    <h1 id="header">Pet Adoption Tool</h1>
 
         <input value={zip} onChange={(e) => setZip(e.target.value)} placeholder="Enter ZIP code" maxLength={5}/> {/*only 5 digit zipcodes are supported*/}
         <button onClick={handleSearch} disabled={loading} className="search">{loading ? "Searching..." : "Find Shelters near me"}</button>
