@@ -1,16 +1,33 @@
-# React + Vite
+# Pet Adoption Tool
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Pet Adoption Tool is a web application tool that aims to serve as a simple method to find animal shelters nearby a given ZIP code.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
+* Enter a ZIP code and find nearby shelters
+* Find nearby shelters, veterinary clinics, and pet stores within 5000 meters
+* Display locations with
+    + Location name
+    + Address
+    + Distance in miles
+* Direct link to location on Google Maps
 
-## React Compiler
+## Frameworks and Tools
+* React + Vite
+* JavaScript, HTML, CSS
+* OpenStreetMap and Overpass API
+* Zippopotam API
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## How It Works
+* The user enters a ZIP code and a request is sent to Zippopotam API to retrieve latitude and longitude
+* Coordinates are used by the Overpass API 
+* Overpass queries OpenStreetMap data for 
+    + Animal shelters
+    + Veterinaries
+    + Pet stores
+* Results are displayed with closest being shown first
+* Distances from the given ZIP code is calculated using the Haversine formula 
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Notes
+* Some locations do not return address data due to limitations in OpenStreet Map
+* Certain ZIP codes will not return results and require a larger search radius
